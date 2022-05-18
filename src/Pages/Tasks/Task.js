@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Task = ({ task, index }) => {
+const Task = ({ task, index, setTasks }) => {
     const { name, description } = task
+
+    const handleRemoveTask = () => {
+        console.log(index);
+    }
     return (
         <tr>
             <th>{index + 1}</th>
@@ -9,7 +13,7 @@ const Task = ({ task, index }) => {
             <td>{description}</td>
             <td>
                 <button className='btn btn-xs'>Completed</button>
-                <button className='btn btn-xs'>Remove</button>
+                <button onClick={() => handleRemoveTask(index)} className='btn btn-xs'>Remove</button>
             </td>
         </tr>
     );

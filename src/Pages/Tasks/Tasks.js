@@ -30,9 +30,10 @@ const Tasks = () => {
 
                         {
                             tasks.map((task, index) => <Task
-                                key={task._id}
+                                key={index}
                                 task={task}
                                 index={index}
+                                setTasks={setTasks}
                             ></Task>)
                         }
 
@@ -41,6 +42,7 @@ const Tasks = () => {
             </div>
 
             {isModalOpen && <AddTask
+                tasks={tasks}
                 setTasks={setTasks}
                 setIsModalOpen={setIsModalOpen}
             ></AddTask>}
