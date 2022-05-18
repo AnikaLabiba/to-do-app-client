@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Task = ({ task, index, setTasks }) => {
+const Task = ({ task, index, setTasks, handleRemoveTask }) => {
     const { name, description } = task
 
-    const handleRemoveTask = () => {
-        console.log(index);
-    }
+
     return (
         <tr>
             <th>{index + 1}</th>

@@ -10,14 +10,24 @@ const Tasks = () => {
             .then(res => res.json())
             .then(data => setTasks(data))
     }, [])
+
+    const handleRemoveTask = name => {
+
+        const proceed = window.confirm('Do you want to remove the task?')
+        if (proceed) {
+            const newTaskArray = tasks.filter(task => task.index !== name)
+            setTasks(newTaskArray)
+            alert('Task removed')
+        }
+    }
     return (
         <div>
             <div className='flex justify-around items-center'>
                 <h2 className='text-2xl font-bold mt-7'>To-do List</h2>
-                <label onClick={() => setIsModalOpen(true)} for="add-task-modal" class="btn btn-outline btn-success modal-button">Add Task</label>
+                <label onClick={() => setIsModalOpen(true)} htmlFor="add-task-modal" className="btn btn-outline btn-success modal-button">Add Task</label>
             </div>
-            <div class="overflow-x-auto flex items-center w-fit mt-8 mx-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto flex items-center w-10/12 mt-8 mx-auto">
+                <table className="table table-zebra w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -34,6 +44,7 @@ const Tasks = () => {
                                 task={task}
                                 index={index}
                                 setTasks={setTasks}
+                                handleRemoveTask={handleRemoveTask}
                             ></Task>)
                         }
 

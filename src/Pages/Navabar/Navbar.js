@@ -12,10 +12,10 @@ const Navbar = () => {
         navigate('/')
     }
     return (
-        <div class="navbar bg-base-100 flex justify-between ">
-            <Link to='/' class="btn btn-ghost normal-case text-xl">To-do App</Link>
+        <div className="navbar bg-base-100 flex justify-between ">
+            <Link to='/' className="btn btn-ghost normal-case text-xl">To-do App</Link>
             {
-                user && <button onClick={handleSignOut} class="btn btn-ghost">Sign Out</button>
+                user && <button onClick={handleSignOut} className="btn btn-ghost">Sign Out</button>
             }
         </div >
     );
