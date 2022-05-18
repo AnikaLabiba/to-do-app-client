@@ -1,0 +1,17 @@
+[
+    {
+        "_id": 1,
+        "name": "Practice Javascript",
+        "description": "Practice Javascript es6 features and learn how Javascript works."
+    },
+    {
+        "_id": 2,
+        "name": "Practice MongoDb",
+        "description": "Practice MongoDb CRUD operations and learn how to deploy in Heroku with connecting MongoDb."
+    },
+    {
+        "_id": 3,
+        "name": "Walk 200 steps",
+        "description": "Walking 200 steps is must for today."
+    }
+]

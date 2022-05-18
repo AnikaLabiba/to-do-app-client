@@ -1,28 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import AddTask from './AddTask';
 import Task from './Task';
 
 const Tasks = () => {
-    const tasks = [
-        {
-            _id: 1,
-            name: "Practice Javascript",
-            description: "Practice Javascript es6 features and learn how Javascript works."
-        },
-        {
-            _id: 2,
-            name: "Practice Javascript",
-            description: "Practice Javascript es6 features and learn how Javascript works."
-        },
-        {
-            _id: 3,
-            name: "Practice Javascript",
-            description: "Practice Javascript es6 features and learn how Javascript works."
-        },
-    ]
+    const [tasks, setTasks] = useState([])
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    useEffect(() => {
+        fetch('tasks.json')
+            .then(res => res.json())
+            .then(data => setTasks(data))
+    }, [])
     return (
         <div>
-            <h2 className='text-2xl font-bold mt-7'>To-do List</h2>
-            <div class="overflow-x-auto flex items-center w-3/4 mt-8 mx-auto">
+            <div className='flex justify-around items-center'>
+                <h2 className='text-2xl font-bold mt-7'>To-do List</h2>
+                <label onClick={() => setIsModalOpen(true)} for="add-task-modal" class="btn btn-outline btn-success modal-button">Add Task</label>
+            </div>
+            <div class="overflow-x-auto flex items-center w-fit mt-8 mx-auto">
                 <table class="table table-zebra w-full">
                     <thead>
                         <tr>
@@ -46,6 +40,10 @@ const Tasks = () => {
                 </table>
             </div>
 
+            {isModalOpen && <AddTask
+                setTasks={setTasks}
+                setIsModalOpen={setIsModalOpen}
+            ></AddTask>}
         </div>
     );
 };
