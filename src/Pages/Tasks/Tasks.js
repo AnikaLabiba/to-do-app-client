@@ -11,11 +11,12 @@ const Tasks = () => {
             .then(data => setTasks(data))
     }, [])
 
-    const handleRemoveTask = name => {
+
+    const handleRemoveTask = index => {
 
         const proceed = window.confirm('Do you want to remove the task?')
         if (proceed) {
-            const newTaskArray = tasks.filter(task => task.index !== name)
+            const newTaskArray = tasks.filter(task => task.index !== index)
             setTasks(newTaskArray)
             alert('Task removed')
         }

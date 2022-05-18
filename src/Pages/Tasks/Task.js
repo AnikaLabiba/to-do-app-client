@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Task = ({ task, index, setTasks, handleRemoveTask }) => {
+const Task = ({ task, index, handleRemoveTask }) => {
     const { name, description } = task
 
 
